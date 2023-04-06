@@ -48,7 +48,19 @@ public class BST {
      */
     public boolean search(int val) {
         // TODO: Complete the search function
-        return false;
+        return recursiveSearch(val, root);
+    }
+
+    public boolean recursiveSearch(int val, BSTNode currentNode) {
+        if (currentNode == null)
+            return false;
+        if (currentNode.getVal() == val) {
+            return true;
+        }
+        if (val < currentNode.getVal())
+            return (recursiveSearch(val, currentNode.getLeft()));
+        else
+            return (recursiveSearch(val, currentNode.getRight()));
     }
 
     /**
