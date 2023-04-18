@@ -22,11 +22,25 @@ public class BST {
      * with some default values
      */
     public void setupTestData() {
-        this.root = new BSTNode(10);
-        this.root.setLeft(new BSTNode(5));
-        this.root.setRight(new BSTNode((15)));
-        this.root.getLeft().setLeft(new BSTNode(3));
-        this.root.getLeft().setRight(new BSTNode(9));
+//        this.root = new BSTNode(10);
+//        this.root.setLeft(new BSTNode(5));
+//        this.root.setRight(new BSTNode((15)));
+//        this.root.getLeft().setLeft(new BSTNode(3));
+//        this.root.getLeft().setRight(new BSTNode(9));
+//        this.root = new BSTNode(8);
+//        this.root.setLeft(new BSTNode(3));
+//        this.root.getLeft().setLeft(new BSTNode(1));
+//        this.root.getLeft().setRight(new BSTNode(6));
+//        this.root.getLeft().getRight().setLeft(new BSTNode(4));
+//        this.root.getLeft().getRight().setRight(new BSTNode(7));
+//        this.root.setRight(new BSTNode((10)));
+//        this.root.getRight().setRight(new BSTNode(14));
+//        this.root.getRight().getRight().setLeft(new BSTNode(13));
+        this.root = new BSTNode(4);
+        this.root.setLeft(new BSTNode(2));
+        this.root.getLeft().setLeft(new BSTNode(1));
+        this.root.getLeft().setRight(new BSTNode(3));
+        this.root.setRight(new BSTNode(7));
     }
 
     /**
@@ -129,6 +143,26 @@ public class BST {
      */
     public void insert(int val) {
         // TODO: Complete insert
+        insertHelper(val, root);
+    }
+
+    // end up returning everything in the pathway that it took
+    public BSTNode insertHelper(int val, BSTNode root) {
+        if (root.getVal() == val) {
+            return root;
+        }
+        if (val < root.getVal()) {
+            if (root.getLeft() == null) {
+                root.setLeft(new BSTNode(val));
+            }
+            return insertHelper(val, root.getLeft());
+        }
+        else {
+            if (root.getRight() == null) {
+                root.setRight(new BSTNode(val));
+            }
+            return insertHelper(val, root.getRight());
+        }
     }
 
     /**
@@ -164,7 +198,7 @@ public class BST {
         sol = tree.getPostorder();
         printNodes(sol);
 
-        tree.insert(8);
+        tree.insert(5);
         System.out.println("\nInorder traversal of binary tree is");
         sol = tree.getInorder();
         printNodes(sol);
