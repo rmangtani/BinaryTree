@@ -1,7 +1,7 @@
 /**
  * The Node for an Integer Binary Tree
  *
- * @author: Nandhini Namasivayam
+ * @author: Nandhini Namasivayam, Ruchi Mangtani
  * @version: 03/22/22
  */
 
