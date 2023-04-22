@@ -151,7 +151,7 @@ public class BST {
 
     /**
      * Helper method that inserts val to the tree by recursively searching
-     * the tree to find its correct position.
+     * the tree to find its correct position
      * @param val the value being inserted
      * @param currentNode the current BSTNode being compared to val
      * @return the root of the updated tree
